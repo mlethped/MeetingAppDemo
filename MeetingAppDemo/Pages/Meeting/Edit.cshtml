@@ -13,16 +13,16 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MeetingRoom.ID" />
+            <input type="hidden" asp-for="MeetingRoom.Id" />
             <div class="form-group">
                 <label asp-for="MeetingRoom.Name" class="control-label"></label>
                 <input asp-for="MeetingRoom.Name" class="form-control" />
                 <span asp-validation-for="MeetingRoom.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MeetingRoom.LOcation" class="control-label"></label>
-                <input asp-for="MeetingRoom.LOcation" class="form-control" />
-                <span asp-validation-for="MeetingRoom.LOcation" class="text-danger"></span>
+                <label asp-for="MeetingRoom.Location" class="control-label"></label>
+                <input asp-for="MeetingRoom.Location" class="form-control" />
+                <span asp-validation-for="MeetingRoom.Location" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MeetingRoom.Size" class="control-label"></label>

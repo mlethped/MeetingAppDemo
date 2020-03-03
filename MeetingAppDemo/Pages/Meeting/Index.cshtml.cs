@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MeetingAppDemo.Data;
-using MeetingAppDemo.Models;
+using Domain.MeetingRooms;
 
 namespace MeetingAppDemo
 {
