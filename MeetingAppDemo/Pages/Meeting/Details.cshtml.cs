@@ -12,9 +12,9 @@ namespace MeetingAppDemo
 {
     public class DetailsModel : PageModel
     {
-        private readonly MeetingRoomContext _context;
+        private readonly DatabaseContext _context;
 
-        public DetailsModel(MeetingRoomContext context)
+        public DetailsModel(DatabaseContext context)
         {
             _context = context;
         }

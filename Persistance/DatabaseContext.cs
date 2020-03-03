@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistance
 {
-    public class MeetingRoomContext : DbContext, IDatabaseService
+    public class DatabaseContext : DbContext, IDatabaseService
     {
-        public MeetingRoomContext(DbContextOptions<MeetingRoomContext> options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
         }

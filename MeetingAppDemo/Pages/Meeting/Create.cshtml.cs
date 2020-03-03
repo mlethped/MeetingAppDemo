@@ -12,9 +12,9 @@ namespace MeetingAppDemo
 {
     public class CreateModel : PageModel
     {
-        private readonly MeetingRoomContext _context;
+        private readonly DatabaseContext _context;
 
-        public CreateModel(MeetingRoomContext context)
+        public CreateModel(DatabaseContext context)
         {
             _context = context;
         }

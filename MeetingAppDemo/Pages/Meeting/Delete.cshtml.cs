@@ -12,9 +12,9 @@ namespace MeetingAppDemo
 {
     public class DeleteModel : PageModel
     {
-        private readonly MeetingRoomContext _context;
+        private readonly DatabaseContext _context;
 
-        public DeleteModel(MeetingRoomContext context)
+        public DeleteModel(DatabaseContext context)
         {
             _context = context;
         }

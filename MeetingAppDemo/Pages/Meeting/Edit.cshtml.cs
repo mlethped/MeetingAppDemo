@@ -13,9 +13,9 @@ namespace MeetingAppDemo
 {
     public class EditModel : PageModel
     {
-        private readonly MeetingRoomContext _context;
+        private readonly DatabaseContext _context;
 
-        public EditModel(MeetingRoomContext context)
+        public EditModel(DatabaseContext context)
         {
             _context = context;
         }

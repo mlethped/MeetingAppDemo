@@ -27,7 +27,7 @@ namespace MeetingAppDemo
         {
             services.AddRazorPages();
 
-            services.AddDbContext<MeetingRoomContext>(options =>
+            services.AddDbContext<DatabaseContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MeetingRoomContext")));
         }
 

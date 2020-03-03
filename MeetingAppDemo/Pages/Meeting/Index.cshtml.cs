@@ -12,9 +12,9 @@ namespace MeetingAppDemo
 {
     public class IndexModel : PageModel
     {
-        private readonly MeetingRoomContext _context;
+        private readonly DatabaseContext _context;
 
-        public IndexModel(MeetingRoomContext context)
+        public IndexModel(DatabaseContext context)
         {
             _context = context;
         }
