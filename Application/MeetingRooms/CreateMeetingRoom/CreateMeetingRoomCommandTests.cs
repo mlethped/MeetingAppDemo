@@ -5,7 +5,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Application.MeetingRooms.CreateMeetingRoom
@@ -17,7 +17,7 @@ namespace Application.MeetingRooms.CreateMeetingRoom
         private IMeetingRoomFactory _factory;
         private CreateMeetingRoomModel _model;
 
-        private Mock<IDbSet<MeetingRoom>> _meetingRooms;
+        private Mock<DbSet<MeetingRoom>> _meetingRooms;
 
         [SetUp]
         public void Setup()
@@ -61,9 +61,9 @@ namespace Application.MeetingRooms.CreateMeetingRoom
             _database.Verify(x => x.Save(), Times.Once);
         }
 
-        private static Mock<IDbSet<MeetingRoom>> GetDbSetMeetingRoomMock()
+        private static Mock<DbSet<MeetingRoom>> GetDbSetMeetingRoomMock()
         {
-            var meetingRoomMock = new Mock<IDbSet<MeetingRoom>>();
+            var meetingRoomMock = new Mock<DbSet<MeetingRoom>>();
             meetingRoomMock.Setup(x => x.Add(It.IsAny<MeetingRoom>())).Verifiable();
             return meetingRoomMock;
         }

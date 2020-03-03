@@ -1,11 +1,11 @@
 ﻿using Domain.MeetingRooms;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Interfaces
 {
     public interface IDatabaseService
     {
-        IDbSet<MeetingRoom> MeetingRooms { get; set; }
+        DbSet<MeetingRoom> MeetingRooms { get; set; }
 
         void Save();
     }

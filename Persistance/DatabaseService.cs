@@ -8,9 +8,10 @@ using System.Text;
 
 namespace Persistance
 {
-    public class DatabaseService : DbContext, IDatabaseService
+    public class DatabaseService : System.Data.Entity.DbContext, IDatabaseService
     {
-        public IDbSet<MeetingRoom> MeetingRooms { get; set; }
+        public System.Data.Entity.DbSet<MeetingRoom> MeetingRooms { get; set; }
+        Microsoft.EntityFrameworkCore.DbSet<MeetingRoom> IDatabaseService.MeetingRooms { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public DatabaseService() 
             : base("MeetingApp")
