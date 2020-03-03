@@ -31,7 +31,7 @@ namespace Application.MeetingRooms.UpdateMeetingRoom
             _database = dbMock;
 
             var factoryMock = new Mock<IMeetingRoomFactory>();
-            factoryMock.Setup(x => x.Update(It.IsAny<MeetingRoom>(), It.IsAny<string>(), It.IsAny<int>()))
+            factoryMock.Setup(x => x.Update(It.IsAny<MeetingRoom>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<int>()))
                 .Returns(new MeetingRoom());
             _factory = factoryMock.Object;
 

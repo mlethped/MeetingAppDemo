@@ -34,11 +34,14 @@ namespace Application.MeetingRooms.UpdateMeetingRoom
             }
 
             var currentMeetingRoom = _database.MeetingRooms.Single(x => x.Id == model.Id);
+
             var newName = model.Name;
+            var newLocation = model.Location;
             var newSize = model.Size;
 
             var newMeetingRoom = _factory.Update(
                 currentMeetingRoom: currentMeetingRoom,
+                newLocation: newLocation,
                 newName: newName,
                 newSize: newSize);
 

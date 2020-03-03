@@ -23,16 +23,7 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomDetails
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    RoomLocation = _database.RoomLocations
-                                .Where(p => p.Id == x.RoomLocation.Id)
-                                .Select(p => new GetRoomLocationDetailModel()
-                                {
-                                    Id = p.Id,
-                                    Address = p.Address,
-                                    Building = p.Building,
-                                    Floor = p.Floor,
-                                    RoomNumber = p.RoomNumber
-                                }).Single(),
+                    Location = x.Location,
                     Size = x.Size
                 })
                 .Single();

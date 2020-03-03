@@ -7,7 +7,7 @@ namespace Application.MeetingRooms.CreateMeetingRoom
     public class CreateMeetingRoomModel
     {
         public string Name { get; set; }
-        public Guid RoomLocationId { get; set; }
+        public string Location { get; set; }
         public int Size { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomList
 
         public string Name { get; set; }
 
-        public GetRoomLocationListModel RoomLocation { get; set; }
+        public string Location { get; set; }
 
         public int Size { get; set; }
     }

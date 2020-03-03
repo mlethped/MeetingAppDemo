@@ -12,7 +12,7 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomDetails.Tests
 
         private Guid Id = Guid.NewGuid();
         private string Name = "Room 1";
-        private GetRoomLocationDetailModel RoomLocation = new GetRoomLocationDetailModel();
+        private string Location = "Some Location";
         private int Size = 8;
 
         [SetUp]
@@ -40,9 +40,9 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomDetails.Tests
         [Test]
         public void SetAndGetRoomLocation()
         {
-            _model.RoomLocation = RoomLocation;
+            _model.Location = Location;
 
-            Assert.AreEqual(RoomLocation, _model.RoomLocation);
+            Assert.AreEqual(Location, _model.Location);
         }
 
         [Test]

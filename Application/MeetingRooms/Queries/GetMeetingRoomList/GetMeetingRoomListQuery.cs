@@ -20,18 +20,9 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomList
             var meetingRooms = _database.MeetingRooms
                 .Select(x => new GetMeetingRoomListModel()
                 {
-Id = x.Id,
+                    Id = x.Id,
                     Name = x.Name,
-                    RoomLocation = _database.RoomLocations
-                                .Where(p => p.Id == x.RoomLocation.Id)
-                                .Select(p => new GetRoomLocationListModel()
-                                {
-                                    Id = p.Id,
-                                    Address = p.Address,
-                                    Building = p.Building,
-                                    Floor = p.Floor,
-                                    RoomNumber = p.RoomNumber
-                                }).Single(),
+                    Location = x.Location,
                     Size = x.Size
                 });
 

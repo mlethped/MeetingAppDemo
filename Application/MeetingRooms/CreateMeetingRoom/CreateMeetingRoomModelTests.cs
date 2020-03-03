@@ -11,7 +11,7 @@ namespace Application.MeetingRooms.CreateMeetingRoom
         private CreateMeetingRoomModel _model;
 
         private const string Name = "Meeting Room 1";
-        private Guid RoomLocationId = Guid.NewGuid();
+        private const string Location = "Some Location";
         private const int Size = 8;
 
         [SetUp]
@@ -29,11 +29,11 @@ namespace Application.MeetingRooms.CreateMeetingRoom
         }
 
         [Test]
-        public void SetAndGetRoomLocationId()
+        public void SetAndGetLocation()
         {
-            _model.RoomLocationId = RoomLocationId;
+            _model.Location = Location;
 
-            Assert.AreEqual(RoomLocationId, _model.RoomLocationId);
+            Assert.AreEqual(Location, _model.Location);
         }
 
         [Test]

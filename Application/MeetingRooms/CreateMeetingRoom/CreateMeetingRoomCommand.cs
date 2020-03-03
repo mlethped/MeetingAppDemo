@@ -23,12 +23,12 @@ namespace Application.MeetingRooms.CreateMeetingRoom
         public void Execute(CreateMeetingRoomModel model)
         {
             var name = model.Name;
-            var roomLocation = _database.RoomLocations.Single(x => x.Id == model.RoomLocationId);
+            var location = model.Location;
             var size = model.Size;
 
             var meetingRoom = _factory.Create(
                 name: name,
-                roomLocation: roomLocation,
+                location: location,
                 size: size);
 
             _database.MeetingRooms.Add(meetingRoom);
