@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using MeetingAppDemo.Data;
 using Domain.MeetingRooms;
+using Persistance;
 
 namespace MeetingAppDemo
 {
     public class CreateModel : PageModel
     {
-        private readonly MeetingAppDemo.Data.MeetingRoomContext _context;
+        private readonly MeetingRoomContext _context;
 
-        public CreateModel(MeetingAppDemo.Data.MeetingRoomContext context)
+        public CreateModel(MeetingRoomContext context)
         {
             _context = context;
         }

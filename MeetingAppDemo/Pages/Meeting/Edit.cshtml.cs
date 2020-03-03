@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MeetingAppDemo.Data;
 using Domain.MeetingRooms;
+using Persistance;
 
 namespace MeetingAppDemo
 {
     public class EditModel : PageModel
     {
-        private readonly MeetingAppDemo.Data.MeetingRoomContext _context;
+        private readonly MeetingRoomContext _context;
 
-        public EditModel(MeetingAppDemo.Data.MeetingRoomContext context)
+        public EditModel(MeetingRoomContext context)
         {
             _context = context;
         }

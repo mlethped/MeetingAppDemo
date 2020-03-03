@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MeetingAppDemo.Data;
 using Domain.MeetingRooms;
+using Persistance;
 
 namespace MeetingAppDemo
 {
     public class DeleteModel : PageModel
     {
-        private readonly MeetingAppDemo.Data.MeetingRoomContext _context;
+        private readonly MeetingRoomContext _context;
 
-        public DeleteModel(MeetingAppDemo.Data.MeetingRoomContext context)
+        public DeleteModel(MeetingRoomContext context)
         {
             _context = context;
         }

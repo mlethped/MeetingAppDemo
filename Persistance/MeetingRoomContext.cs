@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Domain.MeetingRooms;
 using Microsoft.EntityFrameworkCore;
 
-namespace MeetingAppDemo.Data
+namespace Persistance
 {
     public class MeetingRoomContext : DbContext
     {
-        public MeetingRoomContext (DbContextOptions<MeetingRoomContext> options)
+        public MeetingRoomContext(DbContextOptions<MeetingRoomContext> options)
             : base(options)
         {
         }
