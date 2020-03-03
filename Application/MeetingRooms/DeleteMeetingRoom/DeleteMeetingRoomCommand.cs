@@ -1,0 +1,26 @@
+﻿using Application.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Application.MeetingRooms.DeleteMeetingRoom
+{
+    public class DeleteMeetingRoomCommand : IDeleteMeetingRoomCommand
+    {
+        private readonly IDatabaseService _database;
+
+        public DeleteMeetingRoomCommand(IDatabaseService database)
+        {
+            _database = database;
+        }
+
+        public void Execute(DeleteMeetingRoomModel model)
+        {
+            var meetingRoom = _database.MeetingRooms.Single(x => x.Id == model.Id);
+
+            _database.MeetingRooms.Remove(meetingRoom);
+            _database.Save();
+        }
+    }
+}

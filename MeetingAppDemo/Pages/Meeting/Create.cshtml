@@ -1,0 +1,44 @@
+﻿@page
+@model MeetingAppDemo.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>MeetingRoom</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MeetingRoom.Name" class="control-label"></label>
+                <input asp-for="MeetingRoom.Name" class="form-control" />
+                <span asp-validation-for="MeetingRoom.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MeetingRoom.LOcation" class="control-label"></label>
+                <input asp-for="MeetingRoom.LOcation" class="form-control" />
+                <span asp-validation-for="MeetingRoom.LOcation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MeetingRoom.Size" class="control-label"></label>
+                <input asp-for="MeetingRoom.Size" class="form-control" />
+                <span asp-validation-for="MeetingRoom.Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Application.MeetingRooms.Queries.GetMeetingRoomDetails
+{
+    public class GetRoomLocationDetailModel
+    {
+        public Guid Id { get; set; }
+        public string Address { get; set; }
+        public string Building { get; set; }
+        public string Floor { get; set; }
+        public string RoomNumber { get; set; }
+    }
+}
