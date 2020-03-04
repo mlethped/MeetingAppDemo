@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomList
 
         public IList<GetMeetingRoomListModel> Execute()
         {
-            var meetingRooms = _database.MeetingRooms
+            try
+            {
+                var meetingRooms = _database.MeetingRooms
                 .Select(x => new GetMeetingRoomListModel()
                 {
                     Id = x.Id,
@@ -26,7 +29,13 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomList
                     Size = x.Size
                 });
 
-            return meetingRooms.ToList();
+                return meetingRooms.ToList();
+            }
+            catch (Exception e)
+            {
+                Log.Logger.Error(e, $"Error occured while getting all meeting rooms from database");
+                throw;
+            }
         }
     }
 }

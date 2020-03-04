@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Serilog;
 
 namespace Application.MeetingRooms.CreateMeetingRoom
 {
@@ -31,8 +32,16 @@ namespace Application.MeetingRooms.CreateMeetingRoom
                 location: location,
                 size: size);
 
-            _database.MeetingRooms.Add(meetingRoom);
-            _database.Save();
+            try
+            {
+                _database.MeetingRooms.Add(meetingRoom);
+                _database.Save();
+            }
+            catch (Exception e)
+            {
+                Log.Logger.Error(e, "Error occured while adding meeting room to database");
+                throw;
+            }
         }
     }
 }

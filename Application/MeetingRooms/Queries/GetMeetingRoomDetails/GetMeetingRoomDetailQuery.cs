@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomDetails
 
         public GetMeetingRoomDetailModel Execute(Guid meetingRoomId)
         {
-            var meetingRoom = _database.MeetingRooms
+            try
+            {
+                var meetingRoom = _database.MeetingRooms
                 .Where(x => x.Id == meetingRoomId)
                 .Select(x => new GetMeetingRoomDetailModel()
                 {
@@ -28,7 +31,13 @@ namespace Application.MeetingRooms.Queries.GetMeetingRoomDetails
                 })
                 .Single();
 
-            return meetingRoom;
+                return meetingRoom;
+            }
+            catch (Exception e)
+            {
+                Log.Logger.Error(e, $"Error occured while getting meeting room wíth id: {meetingRoomId} from database");
+                throw;
+            }
         }
     }
 }

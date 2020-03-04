@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
+using Serilog;
 
 namespace MeetingAppDemo
 {
@@ -56,6 +57,17 @@ namespace MeetingAppDemo
             {
                 endpoints.MapRazorPages();
             });
+        }
+
+        private void SetupLog()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs\\MeetingAppDemo.txt")
+                .CreateLogger();
+
+            Log.Logger.Verbose("Logger has been set for global scope");
         }
     }
 }

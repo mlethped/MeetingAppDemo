@@ -23,16 +23,6 @@ namespace Application.MeetingRooms.UpdateMeetingRoom
 
         public void Execute(UpdateMeetingRoomModel model)
         {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "some exception");
-                throw;
-            }
-
             var currentMeetingRoom = _database.MeetingRooms.Single(x => x.Id == model.Id);
 
             var newName = model.Name;
@@ -45,9 +35,17 @@ namespace Application.MeetingRooms.UpdateMeetingRoom
                 newName: newName,
                 newSize: newSize);
 
-            _database.MeetingRooms.Remove(currentMeetingRoom);
-            _database.MeetingRooms.Add(newMeetingRoom);
-            _database.Save();
+            try
+            {
+                _database.MeetingRooms.Remove(currentMeetingRoom);
+                _database.MeetingRooms.Add(newMeetingRoom);
+                _database.Save();
+            }
+            catch (Exception e)
+            {
+                Log.Logger.Error(e, "Error occured while updating meeting room in database.");
+                throw;
+            }
         }
     }
 }

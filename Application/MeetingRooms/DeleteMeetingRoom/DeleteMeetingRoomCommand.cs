@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,16 @@ namespace Application.MeetingRooms.DeleteMeetingRoom
         {
             var meetingRoom = _database.MeetingRooms.Single(x => x.Id == model.Id);
 
-            _database.MeetingRooms.Remove(meetingRoom);
-            _database.Save();
+            try
+            {
+                _database.MeetingRooms.Remove(meetingRoom);
+                _database.Save();
+            }
+            catch (Exception e)
+            {
+                Log.Logger.Error(e, "Error occured while deleting meeting room from database");
+                throw;
+            }
         }
     }
 }
