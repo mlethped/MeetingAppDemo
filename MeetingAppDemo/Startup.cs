@@ -19,6 +19,8 @@ namespace MeetingAppDemo
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            SetupLog();
         }
 
         public IConfiguration Configuration { get; }
